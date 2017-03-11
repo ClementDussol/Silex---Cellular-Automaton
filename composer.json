@@ -1,0 +1,12 @@
+{
+    "name": "clement/silex",
+    "require": {},
+    "autoload":{
+    	"classmap": [
+    	""
+    	],
+    	"psr-4": {
+    		"":""
+    	}
+    }
+}

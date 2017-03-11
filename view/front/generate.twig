@@ -1,0 +1,40 @@
+{% extends 'layout/master.twig' %}
+
+{% block body %}
+	
+	{{ 'array of size ' ~ automaton.getWidth() ~ ' * ' ~ automaton.getHeight() }}
+
+	<br>
+   	
+   	{{ 'symmetry x ' ~ automaton.getSymmetry('x')}}
+
+   	<br>
+   	
+   	{{ 'symmetry y ' ~ automaton.getSymmetry('y')}}
+
+   	<br>
+
+	{% for color in automaton.getPalette() %}
+   			{{ 'color ' ~ loop.index ~ ' ' ~ color }} <br>
+   	{% endfor %}
+
+	<br>
+	<svg width="{{automaton.getWidth()* 8}}" height="{{automaton.getHeight()* 8}}">
+	   	
+	   	{% for y,row in array %}
+
+	   		{% for x,value in row %}
+	   		
+	   		<rect 
+	   			x="{{ x * 8 }}" 
+	   			y="{{ y * 8 }}" 
+	   			width="8" 
+	   			height="8" 
+	   			style="fill:{{automaton.getPalette(value)}};"
+	   		/>
+
+	   		{% endfor %}
+	   	{% endfor %}
+	</svg>
+
+{% endblock body %}

@@ -1,0 +1,33 @@
+{% extends 'layout/master.twig' %}
+{% block body %}
+	
+	<div class="config">
+		<form action="/index.php/generate" method="GET">
+
+			<label for="width">Size (in pixels)</label><br>
+			<input type="number" name="width" value="{{ config.width }}"><br>
+			
+			<label for="height">Size (in pixels)</label><br>
+			<input type="number" name="height" value="{{ config.height }}"><br>
+			
+			<input type="checkbox" name="symmetryx" checked="{{ config.symmetryx }}">
+			<label for="symmetryx">Symmetry (horizontal)</label><br>
+			
+			<input type="checkbox" name="symmetryy" checked="{{ config.symmetryy }}">
+			<label for="symmetryy">Symmetry (vertical)</label><br>
+			
+			<label for="color1">couleur 1</label><br>
+			<input type="color" name="color1" class="color_picker" value="{{ config.palette[0] }}"><br>
+
+			<label for="color2">couleur 2</label><br>
+			<input type="color" name="color2" class="color_picker" value="{{ config.palette[1] }}"><br>
+
+			<label for="color3">couleur 3</label><br>
+			<input type="color" name="color3" class="color_picker" value="{{ config.palette[2] }}"><br><br>
+
+			<input type="submit">
+		</form>
+	</div>
+
+	<script type="text/javascript" src="/javascript/ColorPicker.js"></script>
+{% endblock body %}
